@@ -1,0 +1,79 @@
+﻿@page
+@model SportsCLubClasses.Pages.SportsCLubs.IndexModel
+
+@{
+    ViewData["Title"] = "Trainings";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<style>
+    body {
+        color: white;
+    }
+
+    .table {
+        background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+        color: black; /* Text color for table rows */
+    }
+</style>
+
+<h1>Trainings</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-success">Create New</a>
+</p>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SportsCLub[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SportsCLub[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SportsCLub[0].Duration)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SportsCLub[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SportsCLub[0].Trainer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SportsCLub[0].Location)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.SportsCLub)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Duration)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Trainer.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location.Name)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID" class="btn btn-primary">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID" class="btn btn-info">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

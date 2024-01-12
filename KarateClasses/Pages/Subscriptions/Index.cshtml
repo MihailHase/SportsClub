@@ -1,0 +1,72 @@
+﻿@page
+@model SportsCLubClasses.Pages.Subscriptions.IndexModel
+
+@{
+    ViewData["Title"] = "Subscriptions";
+}
+
+<style>
+    a.button {
+        display: inline-block;
+        padding: 10px;
+        margin: 5px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        color: white;
+        background-color: #007bff; /* You can change the color to your preference */
+    }
+
+    body {
+        color: white;
+    }
+
+    .table {
+        background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+        color: black; /* Text color for table rows */
+    }
+</style>
+
+<h1>Subscriptions</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-success">Create New</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Subscription[0].Member)
+            </th>
+            <th>
+                Training
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Subscription[0].StartingDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Subscription)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Member.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SportsCLub.Name) <!-- Change here -->
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartingDate)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID" class="btn btn-primary">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

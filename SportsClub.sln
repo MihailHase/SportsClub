@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportsClub", "KarateClasses\SportsClub.csproj", "{6C312686-362B-44FD-A433-E069FCD912B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsClubApp", "SportsClubApp\SportsClubApp.csproj", "{E9A2551A-5221-4013-AE5A-280DFEE6517E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6C312686-362B-44FD-A433-E069FCD912B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C312686-362B-44FD-A433-E069FCD912B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C312686-362B-44FD-A433-E069FCD912B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C312686-362B-44FD-A433-E069FCD912B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9A2551A-5221-4013-AE5A-280DFEE6517E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9A2551A-5221-4013-AE5A-280DFEE6517E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9A2551A-5221-4013-AE5A-280DFEE6517E}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E9A2551A-5221-4013-AE5A-280DFEE6517E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9A2551A-5221-4013-AE5A-280DFEE6517E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9A2551A-5221-4013-AE5A-280DFEE6517E}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F85E1F9B-71F8-4E25-B965-34E2B7DAFF3A}
+	EndGlobalSection
+EndGlobal

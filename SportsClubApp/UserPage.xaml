@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SportsClubApp.UserPage"
+             Title="UserPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Main Content Section -->
+        <StackLayout Grid.Row="0" Padding="20">
+            <ListView x:Name="usersListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" BackgroundColor="#ecf0f1" Margin="0,0,0,10">
+                                <Label Text="{Binding UserName}" FontAttributes="Bold" TextColor="#2c3e50"/>
+                                <Label Text="{Binding Email}" TextColor="#7f8c8d"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                <Button Text="Update User" Clicked="OnUpdateUserClicked" BackgroundColor="#3498db" TextColor="White" CornerRadius="8" FlexLayout.Grow="1"/>
+                <Button Text="Delete User" Clicked="OnDeleteUserClicked" BackgroundColor="#e74c3c" TextColor="White" CornerRadius="8" FlexLayout.Grow="1"/>
+            </StackLayout>
+        </StackLayout>
+
+        <!-- Footer Section -->
+        <StackLayout Grid.Row="1" Padding="20" BackgroundColor="#f39c12">
+            <Label x:Name="totalUsersLabel" TextColor="White"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

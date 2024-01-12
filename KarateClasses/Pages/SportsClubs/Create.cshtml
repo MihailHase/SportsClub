@@ -1,0 +1,74 @@
+﻿@page
+@model SportsCLubClasses.Pages.SportsCLubs.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+<style>
+    .transparent-background {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 15px;
+        color: black;
+        border-radius: 10px;
+    }
+</style>
+
+<h1>Create</h1>
+<h4>Training</h4>
+<hr/>
+<div class="row">
+    <div class="col-md-6 transparent-background">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="SportsCLub.Name" class="control-label">Name:</label>
+                <input asp-for="SportsCLub.Name" class="form-control" />
+                <span asp-validation-for="SportsCLub.Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SportsCLub.Description" class="control-label">Description:</label>
+                <input asp-for="SportsCLub.Description" class="form-control" />
+                <span asp-validation-for="SportsCLub.Description" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SportsCLub.Duration" class="control-label">Duration:</label>
+                <input asp-for="SportsCLub.Duration" class="form-control" />
+                <span asp-validation-for="SportsCLub.Duration" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SportsCLub.Price" class="control-label">Price:</label>
+                <input asp-for="SportsCLub.Price" class="form-control" />
+                <span asp-validation-for="SportsCLub.Price" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SportsCLub.TrainerID" class="control-label">Trainer:</label>
+                <select asp-for="SportsCLub.TrainerID" class="form-control" asp-items="ViewBag.TrainerID"></select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="SportsCLub.LocationID" class="control-label">Location:</label>
+                <select asp-for="SportsCLub.LocationID" class="form-control" asp-items="ViewBag.LocationID"></select>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index" class="btn btn-info">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

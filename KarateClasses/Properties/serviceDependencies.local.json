@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:LibraryIdentityContextConnection"
+    },
+    "mssql3": {
+      "ignored": "true",
+      "type": "mssql",
+      "connectionId": "ConnectionStrings:SportsCLubClassesContext"
+    }
+  }
+}

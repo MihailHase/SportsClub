@@ -1,0 +1,46 @@
+﻿@page
+@model SportsCLubClasses.Pages.Locations.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+    .transparent-background {
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 15px;
+        color: black;
+        border-radius: 10px;
+    }
+</style>
+
+<h1>Create</h1>
+<h4>Location</h4>
+<hr/>
+<div class="row">
+    <div class="col-md-4 transparent-background">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Location.Name" class="control-label"></label>
+                <input asp-for="Location.Name" class="form-control" />
+                <span asp-validation-for="Location.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Location.Address" class="control-label"></label>
+                <input asp-for="Location.Address" class="form-control" />
+                <span asp-validation-for="Location.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index" class="btn btn-info">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

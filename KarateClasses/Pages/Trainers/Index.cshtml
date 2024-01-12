@@ -1,0 +1,118 @@
+﻿@page
+@model SportsCLubClasses.Pages.Trainers.IndexModel
+
+@{
+    ViewData["Title"] = "Trainers";
+}
+
+<style>
+    a.button {
+        display: inline-block;
+        padding: 10px;
+        margin: 5px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        color: white;
+        background-color: #007bff; /* You can change the color to your preference */
+    }
+    body {
+        color: white;
+    }
+
+    .table {
+        background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+        color: black; /* Text color for table rows */
+    }
+</style>
+
+<h1>Trainers</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-success">Create New</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Trainer[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trainer[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trainer[0].Details)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trainer[0].PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Trainer[0].Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.TrainerData.Trainers)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.TrainerID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Details)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    <a asp-page="./Index" asp-route-id="@item.ID" class="button">Select</a> |
+                    <a asp-page="./Edit" asp-route-id="@item.ID" class="btn btn-primary">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID" class="btn btn-info">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+@if (Model.TrainerData.SportsCLub != null)
+{
+    <h3>Trainings Associated with Selected Trainer</h3>
+    <table class="table">
+
+        @foreach (var item in Model.TrainerData.Trainers)
+        {
+            string selectedRow = "";
+            if (item.ID == Model.TrainerID)
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+
+                <td>
+                    @{
+                        foreach (var b in item.SportsCLub)
+                        {
+
+                            @b.Name @: | @b.Description
+
+                            <br />
+                        }
+                    }
+                </td>
+            </tr>
+        }
+    </table>
+}

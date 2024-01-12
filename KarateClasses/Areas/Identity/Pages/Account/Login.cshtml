@@ -1,0 +1,51 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<div class="container py-5">
+    <div class="row">
+        <div class="col-lg-10 col-xl-7 mx-auto">
+            <h3 class="display-4">@ViewData["Title"]</h3>
+            <p class="btn btn-light">Use a local account to log in.</p>
+            <form id="account" method="post">
+                <div class="form-group mb-3">
+                    <input asp-for="Input.Email" type="email" placeholder="Email address" required="" autofocus="" class="form-control rounded-pill border-0 shadow-sm px-4">
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group mb-3">
+                    <input asp-for="Input.Password" type="password" placeholder="Password" required="" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="custom-control custom-checkbox mb-3">
+                    <input id="customCheck1" type="checkbox" checked class="custom-control-input">
+                    <label for="customCheck1" class="custom-control-label">Remember password</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block text-uppercase mb-2 rounded-pill shadow-sm">Log in</button>
+                <div class="text-center d-flex justify-content-between mt-4">
+                    <p>
+                        <a href="./ForgotPassword" class="btn btn-info">
+                            <u>Forgot your password?</u>
+                        </a>
+                    </p>
+                    <p>
+                        <a href="./Register" class="btn btn-info">
+                            <u>Register as a new user</u>
+                        </a>
+                    </p>
+                    <p>
+                        <a href="./ResendEmailConfirmation" class="btn btn-info">
+                            <u>Resend email confirmation</u>
+                        </a>
+                    </p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,54 @@
+﻿@page
+@model SportsCLubClasses.Pages.Locations.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<style>
+    dl.row {
+        background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+        color: black; /* Text color for table rows */
+    }
+
+
+    a.button {
+        display: inline-block;
+        padding: 10px;
+        margin: 5px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 5px;
+        color: white;
+        background-color: #007bff; /* You can change the color to your preference */
+    }
+</style>
+</style>
+
+</style>
+<h1>Details</h1>
+
+<div>
+    <h4>Location</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Location.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Location.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Location.Address)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Location.Address)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Location?.ID" class="btn btn-primary">Edit</a> |
+    <a asp-page="./Index" class="button">Back to List</a>
+
+   
+</div>
